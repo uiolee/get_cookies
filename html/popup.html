@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="./popup.js" type="module"></script>
+        <link rel="stylesheet" href="/css/pico.slim.min.css" />
+        <link rel="stylesheet" href="./popup.css" />
+    </head>
+
+    <body>
+        <article class="main">
+            <header>
+                <img class="icon" src="" />
+                <span class="name"></span>
+            </header>
+            <div class="search">
+                <input class="url" value="" type="search" id="url" placeholder="Search" />
+                <button id="query"></button>
+            </div>
+
+            <div class="cookies">
+                <div>
+                    <textarea class="cookiesStr"></textarea>
+                </div>
+                <div class="info">
+                    <span id="length"></span>
+                    <button id="copy">Copy</button>
+                </div>
+            </div>
+        </article>
+        <noscript>
+            <p>Require Javascripts!</p>
+        </noscript>
+    </body>
+</html>
