@@ -1,7 +1,12 @@
 {
-  "devDependencies": {
-    "eslint": "^8.43.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "web-ext": "^7.6.2"
-  }
+    "scripts": {
+        "run": "npx web-ext run",
+        "lint": "npx web-ext lint",
+        "build": "npx web-ext build"
+    },
+    "devDependencies": {
+        "eslint": "^8.43.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "web-ext": "^7.6.2"
+    }
 }

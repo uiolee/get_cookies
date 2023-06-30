@@ -1,38 +1,56 @@
+:root {
+    --font-family: 'Courier New', Courier, monospace, sans-serif, system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Ubuntu', 'Cantarell',
+        'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --block-spacing-vertical: calc(var(--spacing) * 1);
+}
 html,
 body {
     width: 100%;
     height: 100%;
-    font-family: 'Courier New', Courier, monospace, sans-serif;
 }
-article,
 header {
+    padding: 0 !important;
+    /* margin-bottom: calc(var(--block-spacing-vertical) * -1); */
+}
+main {
+    padding: 0 !important;
+}
+.nav {
+    display: flex;
     margin: 0;
-    padding: 16px;
-}
-header {
-    padding: 0;
-    margin-bottom: var(--spacing);
-    height: 48px;
+    padding: 8px;
+    /* border-bottom: 1px solid; */
+    justify-content: space-between;
+    height: 32px;
 }
 
-header img {
-    width: 48px;
+.main,
+.info {
+    margin: 0;
+}
+.main .info {
+    padding: 0;
+    height: 32px;
+    margin-bottom: calc(var(--spacing) * 1);
+}
+
+.main .info img {
+    width: 32px;
     position: absolute;
 }
-header span {
+.main .info span {
     display: inline-block;
-    height: 48px;
+    height: 32px;
     margin: auto;
-    margin-left: 48px;
+    margin-left: 32px;
     padding-left: 16px;
-    max-width: 320px;
     overflow-x: hidden;
     overflow-y: auto;
 }
 .search {
     display: flex;
     align-items: center;
-    margin-bottom: var(--spacing);
+    margin-bottom: calc(var(--spacing) * 1);
 }
 .search input {
     flex: 1 1 100%;
@@ -53,13 +71,16 @@ header span {
     background-position: center;
     margin-left: 1px;
 }
-
-.info {
+textarea {
+    padding: 5px;
+    margin-bottom: calc(var(--spacing) * 0.5);
+}
+.cookiesInfo {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.info button {
+.cookiesInfo button {
     width: 96px;
     height: 32px;
     padding: 0;

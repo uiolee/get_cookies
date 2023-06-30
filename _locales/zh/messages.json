@@ -1,0 +1,30 @@
+{
+    "extensionName": {
+        "message": "Get_Cookies"
+    },
+
+    "extensionDescription": {
+        "message": "Get Cookies from current tab."
+    },
+    "newtab": {
+        "message": "新页打开"
+    },
+    "settings": {
+        "message": "设置"
+    },
+    "url": {
+        "message": "搜索"
+    },
+    "cookiesStr": {
+        "message": "空"
+    },
+    "length": {
+        "message": "长度: "
+    },
+    "copy": {
+        "message": "复制"
+    },
+    "theme": {
+        "message": "主题"
+    }
+}

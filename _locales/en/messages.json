@@ -1,0 +1,30 @@
+{
+    "extensionName": {
+        "message": "Get_Cookies"
+    },
+
+    "extensionDescription": {
+        "message": "Get Cookies from current tab."
+    },
+    "newtab": {
+        "message": "Newtab"
+    },
+    "settings": {
+        "message": "Settings"
+    },
+    "url": {
+        "message": "Search"
+    },
+    "cookiesStr": {
+        "message": "Empty!"
+    },
+    "length": {
+        "message": "Length: "
+    },
+    "copy": {
+        "message": "Copy"
+    },
+    "theme": {
+        "message": "Theme"
+    }
+}

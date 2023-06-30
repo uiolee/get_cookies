@@ -1,38 +1,34 @@
 {
-  "manifest_version": 2,
-  "name": "get_cookies",
-  "version": "0.1",
-  "description": "get cookies from current tab or host.",
-  "homepage_url": "https://github.com/uiolee/get-cookies",
-    "permissions": [
-      "tabs",
-      "cookies",
-      "<all_urls>"
-  ],
-  "icons": {
-    "16": "icons/favicon-16x16.png",
-    "32": "icons/favicon-32x32.png",
-    "48": "icons/favicon.ico",
-    "180": "icons/apple-touch-icon.png",
-    "192": "icons/android-chrome-192x192.png",
-    "512": "icons/android-chrome-512x512.png"
-  },
-  
-  "browser_action": {
-    "default_icon": "icons/favicon-32x32.png",
-    "default_title": "get_cookies",
-    "default_popup": "html/popup.html"
-  },
+    "manifest_version": 2,
+    "name": "__MSG_extensionName__",
+    "description": "__MSG_extensionDescription__",
+    "version": "0.2",
+    "default_locale": "en",
+    "homepage_url": "https://github.com/uiolee/get_cookies",
+    "permissions": ["activeTab", "cookies", "<all_urls>"],
+    "icons": {
+        "16": "icons/favicon-16x16.png",
+        "32": "icons/favicon-32x32.png",
+        "180": "icons/apple-touch-icon.png",
+        "192": "icons/android-chrome-192x192.png",
+        "512": "icons/android-chrome-512x512.png"
+    },
 
-  "page_action": {
-  "browser_style": true,
-  "default_icon": "icons/favicon-32x32.png",
-  "default_title": "get_cookies",
-  "default_popup": "html/popup.html"
-},
+    "browser_action": {
+        "default_icon": "icons/favicon-32x32.png",
+        "default_title": "Get_Cookies",
+        "default_popup": "html/popup.html"
+    },
 
-"options_ui": {
-    "page": "html/options.html"
-  }
+    "page_action": {
+        "browser_style": true,
+        "default_icon": "icons/favicon-32x32.png",
+        "default_title": "Get_Cookies",
+        "default_popup": "html/popup.html"
+    },
 
+    "options_ui": {
+        "page": "html/options.html",
+        "open_in_tab": false
+    }
 }
