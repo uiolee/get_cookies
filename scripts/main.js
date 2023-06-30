@@ -1,13 +1,11 @@
-console.log('main js.');
-
 function getTabInfo() {
   // Get current tab info.
   return browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
     const {
-      url, title, favIconUrl, status: tabStatus,
+      url, title, favIconUrl, status: tabStatus, id,
     } = tabs[0];
     return {
-      url, title, favIconUrl, tabStatus,
+      url, title, favIconUrl, tabStatus, id,
     };
   });
 }
@@ -26,23 +24,5 @@ function getCookiesStr(cookiesArray) {
   });
   return cookiesStr;
 }
-function dataFn() {
-  const d = {};
-  function get(k) {
-    return d[k];
-  }
-  function set(k, v) {
-    d[k] = v;
-    return true;
-  }
-  function assign(d2) {
-    Object.assign(d, d2);
-  }
-  return {
-    get,
-    set,
-    assign,
-    d,
-  };
-}
+
 export { getCookies, getCookiesStr, getTabInfo };

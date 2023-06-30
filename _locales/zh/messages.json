@@ -1,10 +1,10 @@
 {
     "extensionName": {
-        "message": "Get_Cookies"
+        "message": "Get_Cookies_QD"
     },
 
     "extensionDescription": {
-        "message": "Get Cookies from current tab."
+        "message": "QD框架自动填入Cookies"
     },
     "newtab": {
         "message": "新页打开"
@@ -21,10 +21,13 @@
     "length": {
         "message": "长度: "
     },
-    "copy": {
-        "message": "复制"
+    "retry": {
+        "message": "重试"
     },
     "theme": {
         "message": "主题"
+    },
+    "input": {
+        "message": "填入"
     }
 }

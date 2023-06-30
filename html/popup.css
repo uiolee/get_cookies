@@ -80,11 +80,17 @@ textarea {
     justify-content: space-between;
     align-items: center;
 }
+.cookiesInfo div {
+    flex-shrink: 0;
+    flex-grow: 0;
+    min-width: 54px;
+}
 .cookiesInfo button {
-    width: 96px;
+    /* width: 96px; */
     height: 32px;
     padding: 0;
     margin: 0;
+    margin-left: 16px;
 }
 .hidden {
     display: none;

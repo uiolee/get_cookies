@@ -1,22 +1,22 @@
 # Get_Cookies
-A Firefox extension to get cookies from current tab.
+A Firefox extension to input cookies for [QD](https://github.com/qd-today/qd/).
 
 ## Install
 
 ### Firefox Browser Add-ons
 
-https://addons.mozilla.org/firefox/addon/get_cookies/
+https://addons.mozilla.org/firefox/addon/get_cookies_qd/
 
 
 ## Uasge
 
-### Get Current Website
+### QD input
 
-In your target website, click the toolbar icon to get cookies.
+In QD edit task, click the toolbar icon to input cookies.
 
 ### Search
 
-Enter the URL you want to query to get Cookies.
+Enter the URL you want to query to input Cookies.
 
 ## Privacy
 

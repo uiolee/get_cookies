@@ -1,14 +1,5 @@
-import { getCookies, getCookiesStr, getTabInfo } from '../js/main.js';
+import { getCookies, getCookiesStr, getTabInfo } from '../scripts/main.js';
 
-function copy() {
-  const cookiesStr = document.querySelector('#cookiesStr').value;
-  navigator.clipboard.writeText(cookiesStr).then(() => {
-    document.getElementById('copy').textContent = 'Copied';
-    document.getElementById('copy').classList.add('outline');
-  }, () => {
-    document.getElementById('copy').textContent = 'COPY';
-  });
-}
 function i18n() {
   const element = document.querySelectorAll('.i18n');
   element.forEach((el) => {
@@ -30,15 +21,7 @@ function len(e) {
   const ans = document.querySelector(`[for='${id}']`);
   ans.textContent = text.length;
 }
-function open(e) {
-  const { id } = e.target;
-  const d = { newtab: '/html/popup.html', settings: '/html/options.html' };
-  const url = d[id];
-  browser.tabs.create({
-    url,
-  });
-  window.close();
-}
+
 function theme() {
   const pt = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   let ut = document.querySelector('html').getAttribute('data-theme');
@@ -62,19 +45,15 @@ const toggle = () => {
   b.classList.add('hidden');
 };
 async function query(e) {
-  loading('#copy', true);
-  let { url, title, favIconUrl } = e;
-  if (!title) {
+  loading('#input', true);
+  let { url } = e;
+  if (!url) {
     url = document.querySelector('#url').value;
-    title = `${url}`;
-    favIconUrl = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'rgb(65, 84, 98)\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3E%3Ccircle cx=\'11\' cy=\'11\' r=\'8\'%3E%3C/circle%3E%3Cline x1=\'21\' y1=\'21\' x2=\'16.65\' y2=\'16.65\'%3E%3C/line%3E%3C/svg%3E';
   }
-  document.querySelector('#url').value = url;
-  document.querySelector('#name').textContent = title;
-  document.querySelector('#icon').src = favIconUrl;
   if (!url) {
     return;
   }
+  document.querySelector('#url').value = url;
   const cookiesStr = getCookiesStr(await getCookies(url));
   if (cookiesStr) {
     document.querySelector('#cookiesStr').value = cookiesStr;
@@ -82,29 +61,47 @@ async function query(e) {
     document.querySelector('#cookiesStr').value = '';
   }
   len({ target: { id: 'cookiesStr' } });
-  loading('#copy', false);
+  loading('#input', false);
+  document.querySelector('#input').classList.remove('outline');
 }
-
+function receive(m) { console.log('receive, ', m.url); query(m); }
+function execute() {
+  browser.tabs.executeScript({
+    file: '/scripts/content.js',
+  });
+  browser.runtime.onMessage.addListener(receive);
+}
+function input() {
+  const id = Number(document.querySelector('#input').getAttribute('for'));
+  const cookiesStr = document.querySelector('#cookiesStr').value;
+  const site = document.querySelector('#url').value;
+  browser.tabs.sendMessage(id, { site, cookiesStr });
+  document.querySelector('#input').classList.add('outline');
+}
 async function init() {
-  const {
-    url, title, favIconUrl, tabStatus,
-  } = await getTabInfo();
-  if (!url.toLowerCase().startsWith('h') || tabStatus !== 'loading') {
-    loading('#name', false);
-  }
-
-  document.querySelector('#newtab').onclick = open;
+  // document.querySelector('#newtab').onclick = open;
   // document.querySelector('#settings').onclick = open;
   document.querySelector('#toggle').onclick = toggle;
   document.querySelector('#theme').onclick = theme;
-  query({ url, title, favIconUrl });
+
+  const {
+    url, title, favIconUrl, tabStatus, id,
+  } = await getTabInfo();
+  document.querySelector('#name').textContent = title;
+  document.querySelector('#icon').src = favIconUrl;
+  document.querySelector('#input').setAttribute('for', id);
+  if (tabStatus !== 'loading') {
+    loading('#name', false);
+  }
+  execute();
+
   document.querySelector('#url').onchange = query;
   document.querySelector('#url').addEventListener('input', query);
   document.querySelector('#cookiesStr').onchange = len;
   document.querySelector('#cookiesStr').addEventListener('input', len);
-  document.querySelector('#copy').onclick = copy;
+  document.querySelector('#retry').onclick = execute;
+  document.querySelector('#input').onclick = input;
+  loading('#input', false);
 }
-const data = {};
 i18n();
 init();
-console.log(data);

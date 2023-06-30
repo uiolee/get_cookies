@@ -1,10 +1,10 @@
 {
     "extensionName": {
-        "message": "Get_Cookies"
+        "message": "Get_Cookies_QD"
     },
 
     "extensionDescription": {
-        "message": "Get Cookies from current tab."
+        "message": "Input Cookies for QD"
     },
     "newtab": {
         "message": "Newtab"
@@ -21,10 +21,13 @@
     "length": {
         "message": "Length: "
     },
-    "copy": {
-        "message": "Copy"
+    "retry": {
+        "message": "Retry"
     },
     "theme": {
         "message": "Theme"
+    },
+    "input": {
+        "message": "Input"
     }
 }
