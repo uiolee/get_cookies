@@ -15,8 +15,8 @@
         <header>
             <menu class="nav">
                 <a class="i18n" id="newtab">NewTab</a>
-                <a class="" id="loading"></a>
                 <a class="i18n" id="theme">Theme</a>
+                <a class="" id="toggle">UA</a>
                 <!-- <a class="i18n" id="settings">Settings</a> -->
             </menu>
         </header>
@@ -28,7 +28,7 @@
                     <span class="name" id="name" aria-busy="true"></span>
                 </div>
                 <div class="search">
-                    <input class="url " value="" type="search" id="url" placeholder="https://" />
+                    <input class="url" value="" type="search" id="url" placeholder="https://" />
                 </div>
 
                 <div class="cookies">
@@ -39,6 +39,11 @@
                         <div><span class="i18n" id="length">Length: </span> <span id="lengthContent" for="cookiesStr"></span></div>
                         <button class="i18n" id="copy">Copy</button>
                     </div>
+                </div>
+            </article>
+            <article class="main hidden">
+                <div>
+                    <textarea id="ua"></textarea>
                 </div>
             </article>
 

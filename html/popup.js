@@ -53,6 +53,14 @@ function loading(selector, bool) {
     document.querySelector(selector).removeAttribute('aria-busy');
   }
 }
+const toggle = () => {
+  document.querySelector('#toggle').textContent = document.querySelector('#toggle').textContent === 'UA' ? 'Cookies' : 'UA';
+  document.querySelector('#ua').textContent = window.navigator.userAgent;
+  let [a, b] = document.querySelectorAll('article');
+  [a, b] = a.classList.contains('hidden') ? [a, b] : [b, a];
+  a.classList.remove('hidden');
+  b.classList.add('hidden');
+};
 async function query(e) {
   loading('#copy', true);
   let { url, title, favIconUrl } = e;
@@ -87,6 +95,7 @@ async function init() {
 
   document.querySelector('#newtab').onclick = open;
   // document.querySelector('#settings').onclick = open;
+  document.querySelector('#toggle').onclick = toggle;
   document.querySelector('#theme').onclick = theme;
   query({ url, title, favIconUrl });
   document.querySelector('#url').onchange = query;
