@@ -1,0 +1,45 @@
+changelog:
+  categories:
+    - title: "code changes"
+      labels:
+        - "code"
+
+    - title: "New Features"
+      labels:
+        - "feat"
+
+    - title: "Bug Fixes"
+      labels:
+        - "fix"
+
+    - title: "Improvements"
+      labels:
+        - "improvement"
+        - "perf"
+
+    - title: "Documentation"
+      labels:
+        - "doc"
+
+    - title: "Dependencies"
+      labels:
+        - "dependencies"
+
+    - title: "Chore"
+      labels:
+        - "github"
+        - "action"
+        - "chore"
+        - "dot"
+
+    - title: "Revert"
+      labels:
+        - "revert"
+
+    - title: "Uncategorized"
+      labels:
+        - "*"
+
+  exclude:
+    labels:
+      - "skip release"

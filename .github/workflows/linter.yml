@@ -1,0 +1,46 @@
+name: Linter
+
+on:
+  push:
+    branches: ['main']
+    paths:
+      - '**.js?'
+      - '**.ts?'
+      - 'lib/**'
+      - 'test/**'
+      - '.github/workflows/linter.yml'
+  pull_request:
+    paths:
+      - '**.js?'
+      - '**.ts?'
+      - 'lib/**'
+      - 'test/**'
+      - '.github/workflows/linter.yml'
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Lint
+        run: |
+          npm run lint
+        env:
+          CI: true
