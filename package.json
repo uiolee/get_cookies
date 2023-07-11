@@ -1,12 +1,33 @@
 {
-    "scripts": {
-        "run": "npx web-ext run",
-        "lint": "npx web-ext lint",
-        "build": "npx web-ext build"
+    "author": "Uiolee",
+    "bugs": {
+        "url": "https://github.com/uiolee/get_cookies/issues"
     },
+    "description": "A Firefox extension to get cookies from current tab.",
     "devDependencies": {
-        "eslint": "^8.43.0",
+        "eslint": "^8.44.0",
         "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.27.5",
         "web-ext": "^7.6.2"
-    }
+    },
+    "homepage": "https://github.com/uiolee/get_cookies#readme",
+    "keywords": [
+        "extension",
+        "firefox",
+        "webextension"
+    ],
+    "license": "MPL-2.0",
+    "main": "lib/main.js",
+    "name": "get_cookies",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uiolee/get_cookies.git"
+    },
+    "scripts": {
+        "build": "web-ext build",
+        "lint": "web-ext lint",
+        "run": "web-ext run ",
+        "dev": "web-ext run --devtools=true"
+    },
+    "version": "0.4.0"
 }

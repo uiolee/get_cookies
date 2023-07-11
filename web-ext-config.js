@@ -1,13 +1,13 @@
 module.exports = {
+  artifactsDir: './.web-ext',
+  ignoreFiles: ['package-lock.json', 'package.json', 'web-ext-config.js', '.web-ext-config.js', 'yarn.lock'],
   build: {
     overwriteDest: true,
   },
-  ignoreFiles: [
-    'package-lock.json',
-    'yarn.lock',
-    'web-ext-config.js',
-  ],
   run: {
-    devtools: true,
+    devtools: false,
+  },
+  sign: {
+    channel: 'listed',
   },
 };

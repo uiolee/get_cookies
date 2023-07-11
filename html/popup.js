@@ -1,4 +1,4 @@
-import { getCookies, getCookiesStr, getTabInfo } from '../js/main.js';
+import { getCookies, getCookiesStr, getTabInfo } from '../lib/main.js';
 
 function copy() {
   const cookiesStr = document.querySelector('#cookiesStr').value;
