@@ -8,6 +8,6 @@ module.exports = {
     devtools: false,
   },
   sign: {
-    channel: 'listed',
+    channel: 'unlisted',
   },
 };

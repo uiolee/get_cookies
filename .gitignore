@@ -130,4 +130,6 @@ dist
 .pnp.*
 
 #
-.web-ext
+**.7z
+**.zip
+**.xpi

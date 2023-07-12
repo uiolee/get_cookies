@@ -1,41 +1,40 @@
 {
-    "manifest_version": 3,
-    "name": "__MSG_extensionName__",
-    "description": "__MSG_extensionDescription__",
-    "version": "0.3.1",
-    "default_locale": "en",
-    "homepage_url": "https://github.com/uiolee/get_cookies",
-    "author": "Uiolee",
-    "permissions": ["activeTab", "cookies", "<all_urls>"],
-    "host_permissions": ["<all_urls>"],
-    "browser_specific_settings": {
-        "gecko": {
-            "id": "{2dd9ed48-f8c2-49c6-af63-1497e5c38763}"
-        }
-    },
-    "icons": {
-        "16": "icons/favicon-16x16.png",
-        "32": "icons/favicon-32x32.png",
-        "180": "icons/apple-touch-icon.png",
-        "192": "icons/android-chrome-192x192.png",
-        "512": "icons/android-chrome-512x512.png"
-    },
-
-    "action": {
-        "default_area": "navbar",
-        "default_title": "__MSG_extensionName__",
-        "default_popup": "html/popup.html",
-        "default_icon": {
-            "16": "icons/favicon-16x16.png",
-            "32": "icons/favicon-32x32.png",
-            "180": "icons/apple-touch-icon.png",
-            "192": "icons/android-chrome-192x192.png",
-            "512": "icons/android-chrome-512x512.png"
-        }
-    },
-
-    "options_ui": {
-        "page": "html/options.html",
-        "open_in_tab": false
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "0.4.0",
+  "default_locale": "en",
+  "homepage_url": "https://github.com/uiolee/get_cookies",
+  "author": "Uiolee",
+  "permissions": ["activeTab", "cookies", "<all_urls>"],
+  "optional_permissions": ["activeTab", "cookies", "<all_urls>"],
+  "host_permissions": ["<all_urls>"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{2dd9ed48-f8c2-49c6-af63-1497e5c38763}"
     }
+  },
+  "icons": {
+    "16": "icons/favicon-16x16.png",
+    "32": "icons/favicon-32x32.png",
+    "180": "icons/apple-touch-icon.png",
+    "192": "icons/android-chrome-192x192.png",
+    "512": "icons/android-chrome-512x512.png"
+  },
+  "action": {
+    "default_area": "navbar",
+    "default_title": "__MSG_extensionName__",
+    "default_popup": "html/popup.html",
+    "default_icon": {
+      "16": "icons/favicon-16x16.png",
+      "32": "icons/favicon-32x32.png",
+      "180": "icons/apple-touch-icon.png",
+      "192": "icons/android-chrome-192x192.png",
+      "512": "icons/android-chrome-512x512.png"
+    }
+  },
+  "options_ui": {
+    "page": "html/options.html",
+    "open_in_tab": false
+  }
 }
