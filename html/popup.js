@@ -1,29 +1,26 @@
+/* eslint-disable import/extensions */
 import { getCookies, getCookiesStr, getTabInfo } from '../lib/main.js';
+import {
+  i18n, bug, loading, theme, objBind, getMsg,
+} from '../lib/utils.js';
+import { checkPermis, doRequest } from '../lib/permis.js';
+
+const data = {};
+
+objBind(data, 'busy', (value) => {
+  loading('article', value);
+});
 
 function copy() {
   const cookiesStr = document.querySelector('#cookiesStr').value;
   navigator.clipboard.writeText(cookiesStr).then(() => {
-    document.getElementById('copy').textContent = 'Copied';
+    document.getElementById('copy').textContent = getMsg('copy-ed');
     document.getElementById('copy').classList.add('outline');
   }, () => {
-    document.getElementById('copy').textContent = 'COPY';
+    document.getElementById('copy').textContent = getMsg('copy-fail');
   });
 }
-function i18n() {
-  const element = document.querySelectorAll('.i18n');
-  element.forEach((el) => {
-    const e = el;
-    const value = browser.i18n.getMessage(e.id);
-    if (!value) {
-      return;
-    }
-    if (['input', 'textarea'].includes(e.tagName.toLowerCase())) {
-      e.placeholder = value;
-    } else {
-      e.textContent = value;
-    }
-  });
-}
+
 function len(e) {
   const { id } = e.target;
   const text = document.querySelector(`#${id}`).value;
@@ -32,27 +29,14 @@ function len(e) {
 }
 function open(e) {
   const { id } = e.target;
-  const d = { newtab: '/html/popup.html', settings: '/html/options.html' };
+  const d = { newtab: '/html/popup.html', options: '/html/options.html' };
   const url = d[id];
   browser.tabs.create({
     url,
   });
   window.close();
 }
-function theme() {
-  const pt = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  let ut = document.querySelector('html').getAttribute('data-theme');
-  ut = !ut ? pt : ut;
-  ut = ut === 'dark' ? 'light' : 'dark';
-  document.querySelector('html').setAttribute('data-theme', ut);
-}
-function loading(selector, bool) {
-  if (bool) {
-    document.querySelector(selector).setAttribute('aria-busy', true);
-  } else {
-    document.querySelector(selector).removeAttribute('aria-busy');
-  }
-}
+
 const toggle = () => {
   document.querySelector('#toggle').textContent = document.querySelector('#toggle').textContent === 'UA' ? 'Cookies' : 'UA';
   document.querySelector('#ua').textContent = window.navigator.userAgent;
@@ -73,6 +57,7 @@ async function query(e) {
   document.querySelector('#name').textContent = title;
   document.querySelector('#icon').src = favIconUrl;
   if (!url) {
+    loading('#copy', false);
     return;
   }
   const cookiesStr = getCookiesStr(await getCookies(url));
@@ -90,21 +75,31 @@ async function init() {
     url, title, favIconUrl, tabStatus,
   } = await getTabInfo();
   if (!url.toLowerCase().startsWith('h') || tabStatus !== 'loading') {
-    loading('#name', false);
+    data.busy = false;
   }
 
-  document.querySelector('#newtab').onclick = open;
-  // document.querySelector('#settings').onclick = open;
-  document.querySelector('#toggle').onclick = toggle;
-  document.querySelector('#theme').onclick = theme;
   query({ url, title, favIconUrl });
-  document.querySelector('#url').onchange = query;
+  document.querySelector('#url').addEventListener('change', query);
   document.querySelector('#url').addEventListener('input', query);
-  document.querySelector('#cookiesStr').onchange = len;
+  document.querySelector('#cookiesStr').addEventListener('change', len);
   document.querySelector('#cookiesStr').addEventListener('input', len);
-  document.querySelector('#copy').onclick = copy;
+  document.querySelector('#copy').addEventListener('click', copy);
+  document.querySelector('#copy').classList.remove('secondary');
 }
-const data = {};
 i18n();
-init();
-console.log(data);
+document.querySelector('#newtab').addEventListener('click', open);
+document.querySelector('#options').addEventListener('click', open);
+
+document.querySelector('#toggle').addEventListener('click', toggle);
+document.querySelector('#theme').addEventListener('click', theme);
+if (await checkPermis()) {
+  init();
+} else {
+  bug('No Permissions');
+  const request = document.querySelector('#request');
+  request.addEventListener('click', async (e) => {
+    await doRequest(e);
+    window.close();
+  });
+  request.parentNode.classList.remove('hidden');
+}

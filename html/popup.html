@@ -1,57 +1,76 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <script src="./popup.js" type="module"></script>
-        <link rel="stylesheet" href="/css/normalize.min.css" />
-        <link rel="stylesheet" href="/css/pico.min.css" />
-        <link rel="stylesheet" href="./popup.css" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <title>Popup - Get_Cookies</title>
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <script src="./popup.js" type="module"></script>
+    <link rel="stylesheet" href="/css/normalize.min.css" />
+    <link rel="stylesheet" href="/css/pico.min.css" />
+    <link rel="stylesheet" href="./popup.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Popup - Get_Cookies</title>
+  </head>
 
-    <body class=".container-fluid">
-        <header>
-            <menu class="nav">
-                <a class="i18n" id="newtab">NewTab</a>
-                <a class="i18n" id="theme">Theme</a>
-                <a class="" id="toggle">UA</a>
-                <!-- <a class="i18n" id="settings">Settings</a> -->
-            </menu>
-        </header>
+  <body class=".container-fluid">
+    <header>
+      <nav>
+        <ul>
+          <li><a id="toggle">UA</a></li>
+        </ul>
+        <ul id="loading"></ul>
+        <ul>
+          <li>
+            <details role="list" dir="rtl">
+              <summary aria-haspopup="listbox" role="link" data-i18n="menu">Menu</summary>
+              <ul role="listbox">
+                <li><a data-i18n="newtab" id="newtab">NewTab</a></li>
+                <li><a data-i18n="theme" id="theme">Theme</a></li>
+                <li><a data-i18n="options" id="options">Options</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-        <main>
-            <article class="main">
-                <div class="info">
-                    <img class="icon" id="icon" src="" />
-                    <span class="name" id="name" aria-busy="true"></span>
-                </div>
-                <div class="search">
-                    <input class="url" value="" type="search" id="url" placeholder="https://" />
-                </div>
+    <main>
+      <article class="main" aria-busy="true">
+        <div class="info">
+          <img class="icon" id="icon" src="" />
+          <span class="name" id="name"></span>
+        </div>
+        <div class="search">
+          <input class="url" value="" type="search" id="url" placeholder="https://" />
+        </div>
 
-                <div class="cookies">
-                    <div>
-                        <textarea class="cookiesStr i18n" id="cookiesStr" placeholder="Loading..."></textarea>
-                    </div>
-                    <div class="cookiesInfo">
-                        <div><span class="i18n" id="length">Length: </span> <span id="lengthContent" for="cookiesStr"></span></div>
-                        <button class="i18n" id="copy">Copy</button>
-                    </div>
-                </div>
-            </article>
-            <article class="main hidden">
-                <div>
-                    <textarea id="ua"></textarea>
-                </div>
-            </article>
+        <div class="cookies">
+          <div>
+            <textarea class="cookiesStr" data-i18n="cookiesStr" id="cookiesStr" placeholder="Loading..."></textarea>
+          </div>
+          <div class="cookiesInfo">
+            <div>
+              <span data-i18n="length" id="length">Length: </span>
+              <span id="lengthContent" for="cookiesStr"></span>
+            </div>
+            <button data-i18n="copy" id="copy" class="secondary">Copy</button>
+          </div>
+        </div>
+        <footer class="hidden">
+          <button data-i18n="request" id="request" role="button">Require Permissions!</button>
+        </footer>
+      </article>
 
-            <noscript>
-                <p>Require Javascripts!</p>
-            </noscript>
-        </main>
-        <!-- <section></section> -->
-        <!-- <footer></footer> -->
-    </body>
+      <article class="main hidden">
+        <div>
+          <textarea id="ua"></textarea>
+        </div>
+      </article>
+
+      <noscript>
+        <p>Require Javascripts!</p>
+      </noscript>
+    </main>
+    <!-- <section></section> -->
+    <!-- <footer></footer> -->
+  </body>
 </html>

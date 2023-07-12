@@ -1,30 +1,65 @@
 {
-    "extensionName": {
-        "message": "Get_Cookies"
-    },
-
-    "extensionDescription": {
-        "message": "Get Cookies from current tab."
-    },
-    "newtab": {
-        "message": "Newtab"
-    },
-    "settings": {
-        "message": "Settings"
-    },
-    "url": {
-        "message": "Search"
-    },
-    "cookiesStr": {
-        "message": "Empty!"
-    },
-    "length": {
-        "message": "Length: "
-    },
-    "copy": {
-        "message": "Copy"
-    },
-    "theme": {
-        "message": "Theme"
-    }
+  "options": {
+    "message": "Options"
+  },
+  "menu": {
+    "message": "Menu"
+  },
+  "theme": {
+    "message": "Theme"
+  },
+  "permis-mana": {
+    "message": "Permissions Manager"
+  },
+  "request": {
+    "message": "Require Permissions!"
+  },
+  "actions-permis": {
+    "message": "Actions Permissions"
+  },
+  "permis-activeTab": {
+    "message": "activeTab"
+  },
+  "permis-cookies": {
+    "message": "cookies"
+  },
+  "host-permis": {
+    "message": "Host Permissions"
+  },
+  "permis-all": {
+    "message": "All host Permissions (all_urls)"
+  },
+  "newtab": {
+    "message": "Newtab"
+  },
+  "cookiesStr": {
+    "message": "Empty!"
+  },
+  "length": {
+    "message": "Length: "
+  },
+  "copy": {
+    "message": "Copy"
+  },
+  "copy-ed": {
+    "message": "Copied"
+  },
+  "copy-fail": {
+    "message": "Copy FAIL"
+  },
+  "permis-fulfil": {
+    "message": "Permissions fulfilled."
+  },
+  "extensionName": {
+    "message": "Get_Cookies"
+  },
+  "extensionDescription": {
+    "message": "Get Cookies from current tab."
+  },
+  "url": {
+    "message": "Search"
+  },
+  "en_specify": {
+    "message": "test"
+  }
 }

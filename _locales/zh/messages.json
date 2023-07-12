@@ -1,30 +1,65 @@
 {
-    "extensionName": {
-        "message": "Get_Cookies"
-    },
-
-    "extensionDescription": {
-        "message": "Get Cookies from current tab."
-    },
-    "newtab": {
-        "message": "新页打开"
-    },
-    "settings": {
-        "message": "设置"
-    },
-    "url": {
-        "message": "搜索"
-    },
-    "cookiesStr": {
-        "message": "空"
-    },
-    "length": {
-        "message": "长度: "
-    },
-    "copy": {
-        "message": "复制"
-    },
-    "theme": {
-        "message": "主题"
-    }
+  "options": {
+    "message": "选项"
+  },
+  "menu": {
+    "message": "菜单"
+  },
+  "theme": {
+    "message": "主题"
+  },
+  "permis-mana": {
+    "message": "权限管理"
+  },
+  "request": {
+    "message": "需要授权!"
+  },
+  "actions-permis": {
+    "message": "操作权限"
+  },
+  "permis-activeTab": {
+    "message": "activeTab"
+  },
+  "permis-cookies": {
+    "message": "cookies"
+  },
+  "host-permis": {
+    "message": "网站权限"
+  },
+  "permis-all": {
+    "message": "所有网站权限 (all_urls)"
+  },
+  "newtab": {
+    "message": "新页打开"
+  },
+  "cookiesStr": {
+    "message": "空"
+  },
+  "length": {
+    "message": "长度: "
+  },
+  "copy": {
+    "message": "复制"
+  },
+  "copy-ed": {
+    "message": "已复制"
+  },
+  "copy-fail": {
+    "message": "复制失败"
+  },
+  "permis-fulfil": {
+    "message": "权限已授予"
+  },
+  "extensionName": {
+    "message": "Get_Cookies"
+  },
+  "extensionDescription": {
+    "message": "Get Cookies from current tab."
+  },
+  "url": {
+    "message": "搜索"
+  },
+  "en_specify": {
+    "message": "test"
+  }
 }
