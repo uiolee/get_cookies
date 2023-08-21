@@ -133,3 +133,4 @@ dist
 **.7z
 **.zip
 **.xpi
+.web-extension-id

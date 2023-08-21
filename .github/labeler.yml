@@ -1,22 +1,15 @@
-
 code:
-  - '**.js'
-  - 'lib/**'
-
+  - "**.js"
+  - lib/**
 doc:
-  - '**.md'
-
+  - "**.md"
 test:
-  - 'test/**'
-
+  - test/**
 github:
-  - '.github/*'
-
+  - .github/*
 action:
-  - '.github/workflows/**'
-
+  - .github/workflows/**
 dependencies:
-  - 'package*.json'
-
+  - package*.json
 dot:
-  - '.*'
+  - .*
