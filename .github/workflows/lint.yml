@@ -1,27 +1,28 @@
-name: Linter
+name: lint
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - "main"
     paths:
-      - "**.js?"
-      - "**.ts?"
+      - "**.jsx?"
+      - "**.tsx?"
       - "lib/**"
       - "test/**"
-      - ".github/workflows/linter.yml"
+      - ".github/workflows/lint.yml"
   pull_request:
     paths:
-      - "**.js?"
-      - "**.ts?"
+      - "**.jsx?"
+      - "**.tsx?"
       - "lib/**"
       - "test/**"
-      - ".github/workflows/linter.yml"
+      - ".github/workflows/lint.yml"
 
 env:
   CI: true
 
 jobs:
-  linter:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

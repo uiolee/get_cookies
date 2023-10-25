@@ -7,9 +7,5 @@ test:
   - test/**
 github:
   - .github/*
-action:
-  - .github/workflows/**
-dependencies:
-  - package*.json
-dot:
-  - .*
+github_actions:
+  - ".github/workflows/**"

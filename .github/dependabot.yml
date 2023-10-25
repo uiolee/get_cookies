@@ -5,21 +5,49 @@
 
 version: 2
 updates:
-  - package-ecosystem: npm
-    directory: /
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
-      interval: weekly
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    versioning-strategy: "increase-if-necessary"
+    # allow:
+    #   - dependency-name: "*"
+    #     dependency-type: "direct"
     ignore:
       - dependency-name: "*"
         update-types:
           - "version-update:semver-patch"
           - "version-update:semver-minor"
-  - package-ecosystem: github-actions
-    directory: /
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: weekly
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "github_actions"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
     ignore:
       - dependency-name: "*"
         update-types:
           - "version-update:semver-patch"
           - "version-update:semver-minor"
+
+  # - package-ecosystem: "gitsubmodule"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #   labels:
+  #     - "dependencies"
+  #     - "submodule"
+  #   commit-message:
+  #     prefix: "chore"
+  #     include: "scope"
