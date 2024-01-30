@@ -1,11 +1,26 @@
 code:
-  - "**.js"
-  - lib/**
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**.js"
+          - "lib/**"
+          - "src/**"
+
 doc:
-  - "**.md"
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**.md"
+
 test:
-  - test/**
+  - changed-files:
+      - any-glob-to-any-file:
+          - "test/**"
+
 github:
-  - .github/*
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/*"
+
 github_actions:
-  - ".github/workflows/**"
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
