@@ -5,7 +5,7 @@ import { checkPermis, doRequest } from "../lib/permis.js";
 const data = {};
 
 objBind(data, "busy", (value) => {
-  loading("article", value);
+  loading("#name", value);
 });
 
 function copy() {

@@ -6,7 +6,7 @@
   "default_locale": "en",
   "homepage_url": "https://github.com/uiolee/get_cookies",
   "author": "Uiolee",
-  "permissions": ["activeTab", "cookies", "<all_urls>"],
+  "permissions": ["activeTab", "cookies"],
   "optional_permissions": ["activeTab", "cookies", "<all_urls>"],
   "host_permissions": ["<all_urls>"],
   "browser_specific_settings": {

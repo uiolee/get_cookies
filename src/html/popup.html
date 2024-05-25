@@ -4,13 +4,13 @@
   <head>
     <meta charset="utf-8" />
     <script src="./popup.js" type="module"></script>
-    <link rel="stylesheet" href="/css/pico.min.css" />
+    <link rel="stylesheet" href="../css/pico.min.css" />
     <link rel="stylesheet" href="./popup.css" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
     <title>Popup - Get_Cookies</title>
   </head>
 
-  <body class=".container-fluid">
+  <body class="container">
     <header>
       <nav>
         <ul>
@@ -19,9 +19,9 @@
         <ul id="loading"></ul>
         <ul>
           <li>
-            <details role="list" dir="rtl">
-              <summary aria-haspopup="listbox" role="link" data-i18n="menu">Menu</summary>
-              <ul role="listbox">
+            <details class="dropdown">
+              <summary data-i18n="menu">Menu</summary>
+              <ul dir="rtl">
                 <li><a data-i18n="newtab" id="newtab">NewTab</a></li>
                 <li><a data-i18n="theme" id="theme">Theme</a></li>
                 <li><a data-i18n="options" id="options">Options</a></li>
@@ -33,13 +33,13 @@
     </header>
 
     <main>
-      <article class="main" aria-busy="true">
+      <article class="card">
         <div class="info">
-          <img class="icon" id="icon" src="" />
-          <span class="name" id="name"></span>
+          <img class="icon" id="icon" src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyBjbGFzcz0iaWNvbiIgc3R5bGU9IndpZHRoOiAxZW07aGVpZ2h0OiAxZW07dmVydGljYWwtYWxpZ246IG1pZGRsZTtmaWxsOiBjdXJyZW50Q29sb3I7b3ZlcmZsb3c6IGhpZGRlbjsiIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwLWlkPSIxNTI1Ij48cGF0aCBkPSJNNzc2IDMyOG0tNzIgMGE3MiA3MiAwIDEgMCAxNDQgMCA3MiA3MiAwIDEgMC0xNDQgMFpNOTk5LjkwNCAxMTYuNjA4YTMyIDMyIDAgMCAwLTIxLjk1Mi0xMC45MTJsLTQ1Ni4xOTItMzEuOTA0YTMxLjU1MiAzMS41NTIgMCAwIDAtMjcuMiAxMS45MDRsLTkyLjE5MiAxMTQuODQ4YTMyIDMyIDAgMCAwIDAuNjcyIDQwLjg5NmwxNDYuMTQ0IDE2OS45NTItMTQ3LjQ1NiAxOTQuNjU2IDM2LjQ4LTE3My4zNzZhMzIgMzIgMCAwIDAtMTEuMTM2LTMxLjQyNEwyMzUuNjE2IDI0NS41MDRsNzkuNjE2LTEyNS42OTZhMzIgMzIgMCAwIDAtMjkuMjgtNDkuMDI0bC0yNDAuMTkyIDE2Ljc2OGEzMiAzMiAwIDAgMC0yOS42OTYgMzQuMTc2bDU1LjgwOCA3OTguMDE2YTMyLjA2NCAzMi4wNjQgMCAwIDAgMzQuMzA0IDI5LjY5NmwxNzYuNTEyLTEzLjE4NGMxNy42MzItMS4zMTIgMzAuODQ4LTE2LjY3MiAyOS41MDQtMzQuMjcycy0xNi41NzYtMzEuMDQtMzQuMzA0LTI5LjUzNmwtMTQ0LjQ0OCAxMC43ODQtNi40MzItOTIuNTEyIDEyNS4zMTItMTIuNTc2YTMyIDMyIDAgMCAwIDI4LjY3Mi0zNS4wNCAzMi4xNiAzMi4xNiAwIDAgMC0zNS4wNC0yOC42NzJsLTEyMy4zOTIgMTIuNDE2TDgyLjE0NCAxNDkuMTg0bDE0NS4xNTItMTAuMTQ0LTYwLjk2IDk2LjIyNGEzMiAzMiAwIDAgMCA2Ljg0OCA0MS45NTJsMTk4LjQgMTYxLjM0NC01OC43NTIgMjc5LjI5NmEzMC45MTIgMzAuOTEyIDAgMCAwIDAuNzM2IDE0Ljc1MiAzMS42OCAzMS42OCAwIDAgMCAxLjQwOCAxMS4wNGw1MS41MiAxNTQuNTZhMzEuOTY4IDMxLjk2OCAwIDAgMCAyNy40NTYgMjEuNzZsNTIzLjEwNCA0Ny41NTJhMzIuMDY0IDMyLjA2NCAwIDAgMCAzNC44NDgtMjkuNjMyTDEwMDcuNjggMTM5Ljg0YTMyLjA2NCAzMi4wNjQgMCAwIDAtNy43NzYtMjMuMjMyeiBtLTk4LjkxMiA2MzAuODQ4bC00MTIuNTc2LTM5LjY0OGEzMS41MiAzMS41MiAwIDAgMC0zNC45MTIgMjguNzY4IDMyIDMyIDAgMCAwIDI4LjggMzQuOTEybDQxNC4yNCAzOS44MDgtNi4yNzIgODkuNTM2LTQ2OS43MjgtNDIuNzItMzkuNTg0LTExOC43MiAyMzQuODE2LTMxMC4wMTZhMzEuOTM2IDMxLjkzNiAwIDAgMC0xLjI0OC00MC4xOTJMNDY4Ljg5NiAyMTkuODRsNjUuMDg4LTgxLjA1NiA0MDcuNTg0IDI4LjQ4LTQwLjU3NiA1ODAuMTkyeiIgcC1pZD0iMTUyNiI+PC9wYXRoPjwvc3ZnPg==" />
+          <span class="name" id="name" aria-busy="true"></span>
         </div>
         <div class="search">
-          <input class="url" value="" type="search" id="url" placeholder="https://" />
+          <input class="url" value="" type="search" id="url" aria-label="Search" placeholder="https://" />
         </div>
 
         <div class="cookies">
@@ -59,7 +59,7 @@
         </footer>
       </article>
 
-      <article class="main hidden">
+      <article class="card hidden">
         <div>
           <textarea id="ua"></textarea>
         </div>
