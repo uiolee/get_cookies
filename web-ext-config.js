@@ -1,4 +1,5 @@
 module.exports = {
+  sourceDir: "./src",
   artifactsDir: "./.web-ext",
   ignoreFiles: ["package-lock.json", "package.json", "web-ext-config.js", ".web-ext-config.js", "yarn.lock"],
   build: {

@@ -17,11 +17,10 @@
   },
   "license": "MPL-2.0",
   "author": "Uiolee",
-  "main": "lib/main.js",
   "scripts": {
     "build": "web-ext build",
     "dev": "web-ext run --devtools=true",
-    "lint": "eslint .",
+    "lint:es": "eslint .",
     "lint:ext": "web-ext lint",
     "sign": "web-ext sign "
   },
