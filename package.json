@@ -23,15 +23,14 @@
     "dev": "web-ext run --devtools=true",
     "lint": "eslint .",
     "lint:ext": "web-ext lint",
-    "run": "web-ext run ",
     "sign": "web-ext sign "
   },
   "devDependencies": {
     "cheerio": "1.0.0-rc.12",
-    "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "web-ext": "^7.8.0"
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "web-ext": "^7.11.0"
   },
-  "packageManager": "pnpm@8"
+  "packageManager": "pnpm@9.1.2+sha1.907f57a52517de34399d66401bf220a549e47b57"
 }
