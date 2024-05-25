@@ -20,7 +20,8 @@
   "scripts": {
     "build": "web-ext build",
     "dev": "web-ext run --devtools=true",
-    "lint:es": "eslint .",
+    "lint": "pnpm run \"/^lint:.*/\"",
+    "lint:es": "eslint src",
     "lint:ext": "web-ext lint",
     "sign": "web-ext sign "
   },
