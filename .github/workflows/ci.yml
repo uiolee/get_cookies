@@ -10,6 +10,8 @@ on:
       - "lib/**"
       - "test/**"
       - ".github/workflows/ci.yml"
+      - "package.json"
+      - "pnpm-lock.yaml"
   pull_request:
     paths:
       - "**.jsx?"
@@ -17,6 +19,8 @@ on:
       - "lib/**"
       - "test/**"
       - ".github/workflows/ci.yml"
+      - "package.json"
+      - "pnpm-lock.yaml"
 
 permissions:
   contents: read
