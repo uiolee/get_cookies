@@ -16,21 +16,36 @@
     "url": "git+ssh://github.com/uiolee/get_cookies.git"
   },
   "license": "MPL-2.0",
-  "author": "Uiolee",
+  "author": "uiolee (https://github.com/uiolee)",
   "scripts": {
-    "build": "web-ext build",
-    "dev": "web-ext run --devtools=true",
-    "lint": "pnpm run \"/^lint:.*/\"",
+    "prebuild": "pnpm run clean",
+    "build": "pnpm run build:dist",
+    "build:dist": "parcel build src/manifest.json --no-cache --no-autoinstall --detailed-report --no-source-maps",
+    "build:ext": "web-ext build",
+    "clean": "rm -rf dist .web-ext .parcel-cache",
+    "dev": "web-ext run --devtools",
+    "lint": "pnpm run lint:ext",
     "lint:es": "eslint src",
     "lint:ext": "web-ext lint",
-    "sign": "web-ext sign "
+    "sign": "web-ext sign",
+    "postversion": "node scripts/postversion.mjs",
+    "prewatch": "pnpm run clean",
+    "watch": "parcel watch src/manifest.json --watch-dir src --no-hmr"
   },
   "devDependencies": {
+    "@parcel/config-webextension": "^2.12.0",
+    "@parcel/optimizer-data-url": "^2.12.0",
+    "@parcel/transformer-inline-string": "^2.12.0",
     "cheerio": "1.0.0-rc.12",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
-    "web-ext": "^8.0.0"
+    "execa": "^9.5.0",
+    "parcel": "^2.12.0",
+    "prettier": "^3.3.3",
+    "web-ext": "^8.3.0"
   },
-  "packageManager": "pnpm@9.1.2+sha1.907f57a52517de34399d66401bf220a549e47b57"
+  "dependencies": {
+    "@picocss/pico": "^2.0.6"
+  }
 }
