@@ -7,7 +7,7 @@ import path from 'path';
 
 import * as cheerio from 'cheerio';
 
-const htmlPath = ['html/options.html', 'html/popup.html'];
+const htmlPath = ['pages/options.html', 'pages/popup.html'];
 const localeDirPath = '_locales';
 const defaultLocale = 'en';
 const locales = [defaultLocale, 'zh', 'ja'];
