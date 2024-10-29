@@ -1,0 +1,20 @@
+{
+  "categories": ["privacy-security"],
+  "default_locale": "en-US",
+  "homepage": {
+    "en-US": "https://github.com/uiolee/get_cookies"
+  },
+  "is_disabled": false,
+  "is_experimental": false,
+  "name": {
+    "en-US": "Get Cookies"
+  },
+  "requires_payment": false,
+  "slug": "get_cookies",
+  "summary": {
+    "en-US": "A Firefox extension to get cookies from current tab."
+  },
+  "version": {
+    "license": "MPL-2.0"
+  }
+}
