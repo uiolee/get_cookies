@@ -32,5 +32,5 @@
   "optional_permissions": ["activeTab", "cookies", "<all_urls>"],
   "options_ui": { "open_in_tab": false, "page": "pages/options.html" },
   "permissions": ["activeTab", "cookies"],
-  "version": "0.5.0"
+  "version": "0.6.0"
 }
