@@ -32,6 +32,9 @@
     "prewatch": "pnpm run clean",
     "watch": "parcel watch src/manifest.json --watch-dir src --no-hmr"
   },
+  "dependencies": {
+    "@picocss/pico": "^2.0.6"
+  },
   "devDependencies": {
     "@parcel/config-webextension": "^2.12.0",
     "@parcel/optimizer-data-url": "^2.12.0",
@@ -44,8 +47,5 @@
     "parcel": "^2.12.0",
     "prettier": "^3.3.3",
     "web-ext": "^8.3.0"
-  },
-  "dependencies": {
-    "@picocss/pico": "^2.0.6"
   }
 }
