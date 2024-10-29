@@ -1,0 +1,77 @@
+name: build
+on:
+  workflow_call:
+    inputs:
+      cache:
+        description: "(boolean) enable actions/cache for pnpm"
+        required: false
+        default: true
+        type: boolean
+      node_version:
+        description: "(string) "
+        required: false
+        default: "lts/*"
+        type: string
+      runs_on:
+        description: "(string) "
+        required: false
+        default: "ubuntu-latest"
+        type: string
+      pnpm_version:
+        description: "(string) "
+        required: false
+        default: "latest"
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  default_node_version: "lts/*"
+  default_pnpm_version: "latest"
+  artifact_name: build_${{ github.sha }}
+
+jobs:
+  build:
+    name: build
+    runs-on: ${{ inputs.runs_on }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: ${{ env.default_pnpm_version }}
+
+      - uses: actions/setup-node@v4
+        name: Setup Node without cache
+        if: ${{ !inputs.cache }}
+        with:
+          node-version: ${{ inputs.node_version }}
+
+      - uses: actions/setup-node@v4
+        name: Setup Node with cache
+        if: ${{ inputs.cache }}
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Build
+        run: |
+          pnpm run build
+
+      - name: pack
+        run: |
+          pnpm run build:ext
+
+      - uses: actions/upload-artifact@v4
+        with:
+          retention-days: 1
+          compression-level: 1
+          name: ${{ env.artifact_name }}
+          path: |
+            dist
+            LICENSE

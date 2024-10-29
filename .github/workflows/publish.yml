@@ -1,0 +1,111 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: ""
+        required: true
+        default: "keep current"
+        type: choice
+        options:
+          - "keep current"
+
+  push:
+    tags:
+      - "v*.*.*"
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+env:
+  default_node_version: "lts/*"
+  default_pnpm_version: "latest"
+  artifact_name: build_${{ github.sha }}
+  artifact_name_signxpi: signxpi_${{ github.sha }}
+  glob_xpi: "./.web-ext/*.xpi"
+  attest_json: "./attestation-${{ github.sha }}.jsonl"
+
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/build.yml
+
+  sign:
+    needs: build
+    timeout-minutes: 30
+    permissions:
+      id-token: write
+      attestations: write
+    name: Sign
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: ${{ env.default_pnpm_version }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{env.default_node_version}}
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Build
+        run: |
+          pnpm build
+
+      - name: Sign
+        env:
+          WEB_EXT_API_KEY: ${{ secrets.WEB_EXT_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
+        run: |
+          pnpm sign
+
+      - uses: actions/attest-build-provenance@v1
+        id: attest
+        name: attest xpi
+        with:
+          subject-path: ${{ env.glob_xpi }}
+
+      - name: copy attestation result
+        run: |
+          cp ${{ steps.attest.outputs.bundle-path }} ${{ env.attest_json }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          retention-days: 1
+          compression-level: 1
+          name: ${{ env.artifact_name_signxpi }}
+          path: |
+            ${{ env.glob_xpi }}
+            LICENSE
+            ${{ env.attest_json }}
+
+  release:
+    name: Release
+    needs: sign
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      discussions: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.artifact_name_signxpi }}
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          generate_release_notes: true
+          discussion_category_name: "Announcements"
+          files: |
+            ${{ env.glob_xpi }}
+            ${{ env.attest_json }}
+          fail_on_unmatched_files: false

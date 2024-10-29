@@ -5,44 +5,40 @@ on:
     branches:
       - "main"
     paths:
-      - "**.jsx?"
-      - "**.tsx?"
-      - "lib/**"
-      - "test/**"
-      - ".github/workflows/ci.yml"
+      - "src/**"
       - "package.json"
-      - "pnpm-lock.yaml"
+      - ".github/workflows/ci.yml"
   pull_request:
     paths:
-      - "**.jsx?"
-      - "**.tsx?"
-      - "lib/**"
-      - "test/**"
-      - ".github/workflows/ci.yml"
+      - "src/**"
       - "package.json"
-      - "pnpm-lock.yaml"
+      - ".github/workflows/ci.yml"
 
 permissions:
   contents: read
 
 env:
   default_node_version: "lts/*"
+  default_pnpm_version: "latest"
+  artifact_name: build_${{ github.sha }}
 
 jobs:
-  lint_es:
-    name: Lint es
+  lint-es:
+    name: eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
+        with:
+          version: ${{ env.default_pnpm_version }}
 
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.default_node_version }}
           architecture: x64
-          cache: "pnpm"
+          cache: pnpm
 
       - name: Install Dependencies
         run: pnpm i
@@ -51,7 +47,7 @@ jobs:
         run: |
           pnpm run lint:es
 
-  lint_ext:
+  lint-ext:
     name: Lint web-ext
     runs-on: ubuntu-latest
     steps:
@@ -59,12 +55,14 @@ jobs:
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
+        with:
+          version: ${{ env.default_pnpm_version }}
 
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.default_node_version }}
           architecture: x64
-          cache: "pnpm"
+          cache: pnpm
 
       - name: Install Dependencies
         run: pnpm i
@@ -75,22 +73,4 @@ jobs:
 
   build:
     name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.default_node_version }}
-          architecture: x64
-          cache: "pnpm"
-
-      - name: Install Dependencies
-        run: pnpm i
-
-      - name: Build
-        run: |
-          pnpm run build
+    uses: ./.github/workflows/build.yml
