@@ -48,10 +48,15 @@ jobs:
           pnpm run lint:es
 
   lint-ext:
+    needs: build
     name: Lint web-ext
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.artifact_name }}
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
