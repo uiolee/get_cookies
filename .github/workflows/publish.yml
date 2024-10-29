@@ -81,6 +81,7 @@ jobs:
           retention-days: 1
           compression-level: 1
           name: ${{ env.artifact_name_signxpi }}
+          include-hidden-files: true
           path: |
             ${{ env.glob_xpi }}
             LICENSE
