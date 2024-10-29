@@ -12,7 +12,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "rules": {},
+  // "rules": {},
   "globals": {
     // "browser": false
   }
