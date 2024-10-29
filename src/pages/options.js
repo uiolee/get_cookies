@@ -15,7 +15,8 @@ const query = () => {
       if (requirePermis.includes(element)) {
         document.querySelector(`#permis-${element}`).checked = true;
       } else {
-        document.querySelector("#opts_act").innerHTML += `<p><input type="checkbox" role="switch" checked id='${element}'/><label for='${element}'>${element}</label></p>`;
+        document.querySelector("#opts_act").innerHTML +=
+          `<p><input type="checkbox" role="switch" checked id='${element}'/><label for='${element}'>${element}</label></p>`;
       }
     });
 
@@ -23,7 +24,8 @@ const query = () => {
       if (element.includes("<all_urls>")) {
         document.querySelector("#permis-all").checked = true;
       } else {
-        document.querySelector("#opts_host").innerHTML += `<p><input type="checkbox" role="switch" checked/><label><code>${element}</code></label></p>`;
+        document.querySelector("#opts_host").innerHTML +=
+          `<p><input type="checkbox" role="switch" checked/><label><code>${element}</code></label></p>`;
       }
       document.querySelectorAll("input").forEach((i) => {
         i.addEventListener("change", (ee) => {
@@ -40,7 +42,8 @@ checkPermis().then((ans) => {
   if (ans) {
     document.querySelector("#request").disabled = true;
     document.querySelector("#request").classList.add("outline");
-    document.querySelector("#request").textContent = browser.i18n.getMessage("permis-fulfil");
+    document.querySelector("#request").textContent =
+      browser.i18n.getMessage("permis-fulfil");
   }
 });
 document.querySelector("#theme").addEventListener("click", theme);

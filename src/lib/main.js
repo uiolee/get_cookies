@@ -1,14 +1,16 @@
 function getTabInfo() {
   // Get current tab info.
-  return browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
-    const { url, title, favIconUrl, status: tabStatus } = tabs[0];
-    return {
-      url,
-      title,
-      favIconUrl,
-      tabStatus,
-    };
-  });
+  return browser.tabs
+    .query({ active: true, currentWindow: true })
+    .then((tabs) => {
+      const { url, title, favIconUrl, status: tabStatus } = tabs[0];
+      return {
+        url,
+        title,
+        favIconUrl,
+        tabStatus,
+      };
+    });
 }
 
 function getCookies(url) {

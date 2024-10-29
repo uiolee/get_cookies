@@ -1,4 +1,7 @@
-export const requirePermis = { origins: ["<all_urls>"], permissions: ["activeTab", "cookies"] };
+export const requirePermis = {
+  origins: ["<all_urls>"],
+  permissions: ["activeTab", "cookies"],
+};
 
 export const requestMap = {
   "permis-all": { origins: ["<all_urls>"] },

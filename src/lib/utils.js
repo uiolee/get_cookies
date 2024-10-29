@@ -29,7 +29,9 @@ export const bug = (v) => {
 };
 
 export const theme = () => {
-  const pt = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const pt = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
   let ut = document.querySelector("html").getAttribute("data-theme");
   ut = !ut ? pt : ut;
   ut = ut === "dark" ? "light" : "dark";

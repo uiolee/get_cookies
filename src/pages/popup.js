@@ -28,8 +28,7 @@ function len(e) {
   ans.textContent = text.length;
 }
 function open(e) {
-  const { id } = e.target;
-  const url = e.target.href
+  const url = e.target.href;
   browser.tabs.create({
     url,
   });
@@ -37,7 +36,8 @@ function open(e) {
 }
 
 const toggle = () => {
-  document.querySelector("#toggle").textContent = document.querySelector("#toggle").textContent === "UA" ? "Cookies" : "UA";
+  document.querySelector("#toggle").textContent =
+    document.querySelector("#toggle").textContent === "UA" ? "Cookies" : "UA";
   document.querySelector("#ua").textContent = window.navigator.userAgent;
   let [a, b] = document.querySelectorAll("article");
   [a, b] = a.classList.contains("hidden") ? [a, b] : [b, a];
@@ -50,7 +50,8 @@ async function query(e) {
   if (!title) {
     url = document.querySelector("#url").value;
     title = `${url}`;
-    favIconUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(65, 84, 98)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E";
+    favIconUrl =
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(65, 84, 98)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E";
   }
   document.querySelector("#url").value = url;
   document.querySelector("#name").textContent = title;
@@ -83,11 +84,11 @@ async function init() {
   document.querySelector("#copy").addEventListener("click", copy);
   document.querySelector("#copy").classList.remove("secondary");
 }
-(async ()=>{
+(async () => {
   i18n();
   document.querySelector("#newtab").addEventListener("click", open);
   // document.querySelector("#options").addEventListener("click", open);
-  
+
   document.querySelector("#toggle").addEventListener("click", toggle);
   document.querySelector("#theme").addEventListener("click", theme);
   if (await checkPermis()) {
@@ -101,5 +102,4 @@ async function init() {
     });
     request.parentNode.classList.remove("hidden");
   }
-}
-)()
+})();
