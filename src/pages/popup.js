@@ -29,8 +29,7 @@ function len(e) {
 }
 function open(e) {
   const { id } = e.target;
-  const d = { newtab: "/html/popup.html", options: "/html/options.html" };
-  const url = d[id];
+  const url = e.target.href
   browser.tabs.create({
     url,
   });
@@ -84,20 +83,23 @@ async function init() {
   document.querySelector("#copy").addEventListener("click", copy);
   document.querySelector("#copy").classList.remove("secondary");
 }
-i18n();
-document.querySelector("#newtab").addEventListener("click", open);
-document.querySelector("#options").addEventListener("click", open);
-
-document.querySelector("#toggle").addEventListener("click", toggle);
-document.querySelector("#theme").addEventListener("click", theme);
-if (await checkPermis()) {
-  init();
-} else {
-  bug("No Permissions");
-  const request = document.querySelector("#request");
-  request.addEventListener("click", async (e) => {
-    await doRequest(e);
-    window.close();
-  });
-  request.parentNode.classList.remove("hidden");
+(async ()=>{
+  i18n();
+  document.querySelector("#newtab").addEventListener("click", open);
+  // document.querySelector("#options").addEventListener("click", open);
+  
+  document.querySelector("#toggle").addEventListener("click", toggle);
+  document.querySelector("#theme").addEventListener("click", theme);
+  if (await checkPermis()) {
+    init();
+  } else {
+    bug("No Permissions");
+    const request = document.querySelector("#request");
+    request.addEventListener("click", async (e) => {
+      await doRequest(e);
+      window.close();
+    });
+    request.parentNode.classList.remove("hidden");
+  }
 }
+)()

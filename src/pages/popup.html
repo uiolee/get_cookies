@@ -3,14 +3,15 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <script src="./popup.js" type="module"></script>
-    <link rel="stylesheet" href="../css/pico.min.css" />
-    <link rel="stylesheet" href="./popup.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="../pages/popup.js" type="module"></script>
+    <link rel="stylesheet" href="../css/pico.css" />
+    <link rel="stylesheet" href="../pages/popup.css" />
     <link rel="icon" type="image/x-icon" href="../favicon.ico" />
     <title>Popup - Get_Cookies</title>
   </head>
 
-  <body class="container">
+  <body class="">
     <header>
       <nav>
         <ul>
@@ -22,9 +23,9 @@
             <details class="dropdown">
               <summary data-i18n="menu">Menu</summary>
               <ul dir="rtl">
-                <li><a data-i18n="newtab" id="newtab">NewTab</a></li>
+                <li><a data-i18n="newtab" id="newtab" href="../pages/popup.html">NewTab</a></li>
                 <li><a data-i18n="theme" id="theme">Theme</a></li>
-                <li><a data-i18n="options" id="options">Options</a></li>
+                <li><a data-i18n="options" id="options" href="../pages/options.html">Options</a></li>
               </ul>
             </details>
           </li>
