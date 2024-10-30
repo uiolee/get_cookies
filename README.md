@@ -11,11 +11,18 @@ A Firefox extension to get cookies from current tab.
 
 ## Install
 
+Available for:
+
+- Firefox
+- Firefox for Android
+
 ### Mozilla Addon
 
-![Mozilla Add-on Version](https://img.shields.io/amo/v/get_cookies?logo=firefox)
+[![Mozilla Add-on Version](https://img.shields.io/amo/v/get_cookies?logo=firefox)](https://addons.mozilla.org/addon/get_cookies/)
 
-https://addons.mozilla.org/firefox/addon/get_cookies/
+### Github Release
+
+[![GitHub Release](https://img.shields.io/github/v/release/uiolee/get_cookies?logo=github)](https://github.com/uiolee/get_cookies/releases)
 
 ## Uasge
 
