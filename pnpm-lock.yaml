@@ -20,7 +20,7 @@ importers:
         version: 2.14.4(@parcel/core@2.13.3(@swc/helpers@0.5.15))
       '@parcel/transformer-inline-string':
         specifier: ^2.12.0
-        version: 2.13.2(@parcel/core@2.13.3(@swc/helpers@0.5.15))
+        version: 2.14.4(@parcel/core@2.13.3(@swc/helpers@0.5.15))
       cheerio:
         specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
@@ -493,9 +493,9 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.13.3
 
-  '@parcel/transformer-inline-string@2.13.2':
-    resolution: {integrity: sha512-FwRqLfoIriLavfG3QhzbYenA/CdWWGZD29dwG7+1/DmOcczfq8KfVKe/vad4psqmLWGJLJcWbTXs5Zq6UKRzYw==}
-    engines: {node: '>= 16.0.0', parcel: ^2.13.2}
+  '@parcel/transformer-inline-string@2.14.4':
+    resolution: {integrity: sha512-WZ7bSsKavHuUOTIfJs5YH1a7NrkLGkin0HxhwQY0a9RAoxEBm56kKd4OSDIOIaCy8/wo1OZQZjbSrJD3NQvEaw==}
+    engines: {node: '>= 16.0.0', parcel: ^2.14.4}
 
   '@parcel/transformer-js@2.13.3':
     resolution: {integrity: sha512-KqfNGn1IHzDoN2aPqt4nDksgb50Xzcny777C7A7hjlQ3cmkjyJrixYjzzsPaPSGJ+kJpknh3KE8unkQ9mhFvRQ==}
@@ -3256,11 +3256,12 @@ snapshots:
       '@parcel/workers': 2.13.3(@parcel/core@2.13.3(@swc/helpers@0.5.15))
       nullthrows: 1.1.1
 
-  '@parcel/transformer-inline-string@2.13.2(@parcel/core@2.13.3(@swc/helpers@0.5.15))':
+  '@parcel/transformer-inline-string@2.14.4(@parcel/core@2.13.3(@swc/helpers@0.5.15))':
     dependencies:
-      '@parcel/plugin': 2.13.2(@parcel/core@2.13.3(@swc/helpers@0.5.15))
+      '@parcel/plugin': 2.14.4(@parcel/core@2.13.3(@swc/helpers@0.5.15))
     transitivePeerDependencies:
       - '@parcel/core'
+      - napi-wasm
 
   '@parcel/transformer-js@2.13.3(@parcel/core@2.13.3(@swc/helpers@0.5.15))':
     dependencies:
