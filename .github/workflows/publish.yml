@@ -76,7 +76,7 @@ jobs:
         run: |
           cp ${{ steps.attest.outputs.bundle-path }} ${{ env.attest_json }}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           retention-days: 1
           compression-level: 1
